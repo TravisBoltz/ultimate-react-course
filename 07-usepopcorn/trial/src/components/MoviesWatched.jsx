@@ -1,9 +1,9 @@
 const average = (arr) =>
-  arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
+  arr.length > 0 ? arr.reduce((acc, cur) => acc + cur, 0) / arr.length : 0;
 
 export default function MoviesWatched({ watched }) {
   const avgImdbRating = average(watched.map((movie) => movie.imdbRating));
-  const avgUserRating = average(watched.map((movie) => movie.userRating));
+  const avgUserRating = average(watched.map((movie) => movie.rating));
   const avgRuntime = average(watched.map((movie) => movie.runtime));
 
   return (
@@ -16,15 +16,15 @@ export default function MoviesWatched({ watched }) {
         </p>
         <p>
           <span>⭐️</span>
-          <span>{avgImdbRating}</span>
+          <span>{avgImdbRating ? avgImdbRating.toFixed(2) : "0.00"}</span>
         </p>
-        <p>
+        {/* <p>
           <span>🌟</span>
-          <span>{avgUserRating}</span>
-        </p>
+          <span>{avgUserRating ? avgUserRating.toFixed(2) : "0.00"}</span>
+        </p> */}
         <p>
           <span>⏳</span>
-          <span>{avgRuntime} min</span>
+          <span>{avgRuntime ? avgRuntime.toFixed(0) : "0"} min</span>
         </p>
       </div>
     </div>

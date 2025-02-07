@@ -1,4 +1,3 @@
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -24,6 +23,18 @@ html {
   font-size: 62.5%;
 }
 
+@media (max-width: 768px) {
+  html {
+    font-size: 56.25%; /* 9px */
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 50%; /* 8px */
+  }
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
@@ -45,12 +56,29 @@ body {
   border-radius: 0.9rem;
 }
 
+@media (max-width: 768px) {
+  .nav-bar {
+    grid-template-columns: 1fr;
+    height: auto;
+    padding: 2rem;
+    gap: 1.6rem;
+  }
+}
+
 .main {
   margin-top: 2.4rem;
   height: calc(100vh - 7.2rem - 3 * 2.4rem);
   display: flex;
   gap: 2.4rem;
   justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .main {
+    flex-direction: column;
+    height: auto;
+    align-items: center;
+  }
 }
 
 .box {
@@ -60,6 +88,13 @@ body {
   border-radius: 0.9rem;
   /* overflow: scroll; */
   position: relative;
+}
+
+@media (max-width: 768px) {
+  .box {
+    width: 100%;
+    max-width: 100%;
+  }
 }
 
 .loader {
@@ -84,8 +119,18 @@ body {
   gap: 0.8rem;
 }
 
-.logo span {
-  font-size: 3.2rem;
+@media (max-width: 768px) {
+  .logo {
+    justify-content: center;
+  }
+  
+  .logo h1 {
+    font-size: 2rem;
+  }
+  
+  .logo span {
+    font-size: 2.8rem;
+  }
 }
 
 .logo h1 {
@@ -108,6 +153,13 @@ body {
   background-color: var(--color-primary-light);
 }
 
+@media (max-width: 768px) {
+  .search {
+    width: 100%;
+    max-width: 100%;
+  }
+}
+
 .search::placeholder {
   color: var(--color-text-dark);
 }
@@ -121,6 +173,12 @@ body {
 .num-results {
   justify-self: end;
   font-size: 1.8rem;
+}
+
+@media (max-width: 768px) {
+  .num-results {
+    justify-self: center;
+  }
 }
 
 .btn-toggle {
@@ -147,6 +205,7 @@ body {
 
 .list-watched {
   height: calc(100% - 9rem);
+  overflow: scroll;
 }
 
 .list li {
@@ -160,6 +219,22 @@ body {
 
   padding: 1.6rem 3.2rem;
   border-bottom: 1px solid var(--color-background-100);
+}
+
+@media (max-width: 768px) {
+  .list li {
+    padding: 1.2rem 2rem;
+    grid-template-columns: 3rem 1fr;
+    column-gap: 1.6rem;
+  }
+  
+  .list h3 {
+    font-size: 1.6rem;
+  }
+  
+  .list div {
+    gap: 1.6rem;
+  }
 }
 
 .list.list-movies li {
@@ -221,6 +296,17 @@ body {
   box-shadow: 0 1.2rem 2.4rem rgba(0, 0, 0, 0.2);
 }
 
+@media (max-width: 768px) {
+  .summary {
+    padding: 1.6rem 2rem;
+  }
+  
+  .summary div {
+    flex-wrap: wrap;
+    gap: 1.2rem;
+  }
+}
+
 .summary h2 {
   text-transform: uppercase;
   font-size: 1.6rem;
@@ -246,6 +332,24 @@ body {
 .details {
   line-height: 1.4;
   font-size: 1.4rem;
+}
+
+@media (max-width: 768px) {
+  .details header {
+    flex-direction: column;
+  }
+  
+  .details img {
+    width: 100%;
+  }
+  
+  .details section {
+    padding: 2rem;
+  }
+  
+  .details-overview {
+    padding: 1.6rem 2rem;
+  }
 }
 
 .details header {
@@ -293,6 +397,13 @@ body {
   display: flex;
   flex-direction: column;
   gap: 2.4rem;
+}
+
+@media (max-width: 768px) {
+  .rating {
+    padding: 1.6rem;
+    gap: 1.6rem;
+  }
 }
 
 .btn-add {

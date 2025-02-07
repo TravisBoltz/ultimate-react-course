@@ -1,7 +1,7 @@
 import StarRating from "./StarRating.jsx";
 export default function MovieList({ movies, onSelectedMovieId }) {
   return (
-    <ul className="list list-movies">
+    <ul className="list list-movies ">
       {movies?.map((movie) => (
         <li key={movie.imdbID} onClick={() => onSelectedMovieId(movie.imdbID)}>
           <img src={movie.Poster} alt={`${movie.Title} poster`} />

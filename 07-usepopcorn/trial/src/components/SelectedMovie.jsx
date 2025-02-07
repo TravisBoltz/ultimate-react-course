@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import StarRating from "./StarRating.jsx";
 export default function SelectedMovie({
   selectedId,
@@ -7,7 +7,13 @@ export default function SelectedMovie({
   watched,
 }) {
   const [movie, setMovie] = useState({});
-  const [rating, setRating] = useState(0);
+  const [rating, setRating] = useState("");
+  const countRef = useRef(0);
+
+  useEffect(() => {
+    if (rating) countRef.current++;
+  }, [rating]);
+
   const isWatched = watched.map((movie) => movie.imdbID).includes(selectedId);
   const watchedUserRating = watched.find(
     (movie) => movie.imdbID === selectedId
@@ -16,7 +22,7 @@ export default function SelectedMovie({
     Title: title,
     Year: year,
     Poster: poster,
-    imdbRating: imdbRating,
+    imdbRating,
     Released: released,
     Actors: actors,
     Director: director,
@@ -33,14 +39,14 @@ export default function SelectedMovie({
       poster,
       imdbRating: Number(imdbRating),
       runtime: Number(runtime.split(" ").at(0)),
+      CountingDecisions: countRef.currnet,
     };
     onAddWatchedMovie(newWatchedMovie);
     onCloseMovie();
   }
 
   // Enter Imbd api key here
-  const key = "";
-
+  const key = "cc13a713";
 
   // setWatched((watched) => watched.filter((movie) => movie.imdbID !== id));
   //   }
