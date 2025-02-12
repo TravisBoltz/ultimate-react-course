@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { ModeToggle } from "./mode-toogle";
-import NavLinkComponent from "./NavLinkComponent";
+import { ModeToggle } from "../components/features/mode-toogle";
+import NavLinkComponent from "../components/NavLinkComponent";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -30,11 +30,10 @@ const Header = () => {
         </Link>
 
         <nav data-aos="fade-down" className="hidden md:flex space-x-6">
-          {/* <NavLinkComponent name="Home" route="/" /> */}
+          <NavLinkComponent name="Home" route="/" />
           <NavLinkComponent name="Login" route="/login" />
           <NavLinkComponent name="Product" route="/product" />
           <NavLinkComponent name="Pricing" route="/pricing" />
-          <NavLinkComponent name="App" route="/app" />
           <ModeToggle />
         </nav>
       </div>

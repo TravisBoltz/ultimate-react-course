@@ -1,4 +1,4 @@
-import Header from "./components/Header";
+// import Header from "./components/Header";
 import { Footer } from "./components/Footer";
 import { ThemeProvider } from "./components/theme-provider";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -22,15 +22,19 @@ export default function App() {
       <BrowserRouter future={routerFutureConfig}>
         <ThemeProvider defaultTheme="dark" storageKey="vite-ui-theme">
           <div className="min-h-screen ">
-            <Header />
-
+            {/* <Header /> */}
             <Routes>
-              <Route path="/" element={<Homepage />} />
+              <Route index element={<Homepage />} />
               <Route path="/product" element={<Product />} />
               <Route path="/login" element={<Login />} />
-              <Route path="/app" element={<AppLayout />} />
               <Route path="/pricing" element={<Pricing />} />
               <Route path="*" element={<PageNotFound />} />
+              <Route path="/app" element={<AppLayout />}>
+                <Route index element={<p>List of Cities</p>}></Route>{" "}
+                <Route path="cities" element={<p>List of Cities</p>}></Route>{" "}
+                <Route path="countries" element={<p>Countries</p>}></Route>
+                <Route path="form" element={<p>Form</p>}></Route>
+              </Route>
             </Routes>
 
             <Footer />

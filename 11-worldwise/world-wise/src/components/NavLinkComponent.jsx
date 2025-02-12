@@ -3,16 +3,18 @@ import PropTypes from "prop-types";
 
 export default function NavLinkComponent({ name, route }) {
   return (
-    <div>
+    <li className="text-gray-700 dark:text-gray-200">
       <NavLink
         to={route}
         className={({ isActive }) =>
-          `${isActive ? "text-green-600" : "text-gray-700 dark:text-gray-200"} hover:text-green-600 transition-colors`
+          `inline-block ${
+            isActive ? "text-green-600" : ""
+          } hover:text-green-600 transition-colors`
         }
       >
         {name}
       </NavLink>
-    </div>
+    </li>
   );
 }
 
